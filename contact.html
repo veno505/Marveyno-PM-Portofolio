@@ -92,6 +92,28 @@
             font-size: 1rem;
             color: #343a40;
         }
+        .fade-out {
+            animation: fadeOut 0.5s forwards;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -134,21 +156,39 @@
                     <h2 style="color: #ffffff; font-family: 'Roboto', sans-serif; text-align: center; font-size: 2.5rem;">Contact</h2>
                     <div class="contact-icons text-center mt-4">
                         <img src="Gmail.jpg" alt="Gmail" style="width: 70px;">
-                        <p style="font-size: 1.2rem;"><a href="mailto:marveynopramaditya@gmail.com" style="color: #343a40;">marveyno@gmaill.com</a></p>
+                        <p style="font-size: 1.2rem;"><a href="mailto:marveynopramaditya@gmail.com" style="color: #fffdd7;">marveyno@gmaill.com</a></p>
                     </div>
                     <div class="contact-icons text-center mt-4">
                         <img src="Icônes de Whatsapp en téléchargement gratuit.jpg" alt="WhatsApp" style="width: 70px;">
-                        <p style="font-size: 1.2rem;"><a href="https://wa.me/6281229923834" style="color: #343a40;">0812-2992-3834</a></p>
+                        <p style="font-size: 1.2rem;"><a href="https://wa.me/6281229923834" style="color: #fffdd7;">0812-2992-3834</a></p>
                     </div>
                     <div class="contact-icons text-center mt-4">
                         <img src="download (4).jpg" alt="LinkedIn" style="width: 70px;">
-                        <p style="font-size: 1.2rem;"><a href="https://www.linkedin.com/in/marveyno" style="color: #343a40;">LinkedIn</a></p>
+                        <p style="font-size: 1.2rem;"><a href="https://www.linkedin.com/in/marveyno" style="color: #fffdd7;">LinkedIn</a></p>
                     </div>
                     <div class="contact-icons text-center mt-4">
                         <img src="76d2cf33-2fe6-4951-81ec-c279531c9b3d.jpg" alt="Instagram" style="width: 70px;">
-                        <p style="font-size: 1.2rem;"><a href="https://www.instagram.com/lanzz_ch" style="color: #343a40;">Instagram</a></p>
+                        <p style="font-size: 1.2rem;"><a href="https://www.instagram.com/lanzz_ch" style="color: #fffdd7;">Instagram</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        document.querySelectorAll('a.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.add('fade-out');
+                });
+
+                setTimeout(() => {
+                    window.location.href = this.getAttribute('href');
+                    targetSection.classList.add('fade-in');
+                }, 500);
+            });
+        });
+    </script>
