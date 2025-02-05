@@ -92,6 +92,28 @@
             font-size: 1rem;
             color: #343a40;
         }
+        .fade-out {
+            animation: fadeOut 0.5s forwards;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -245,3 +267,23 @@
             </div>
         </div>
     </section>
+    <script>
+        document.querySelectorAll('a.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.add('fade-out');
+                });
+
+                setTimeout(() => {
+                    window.location.href = this.getAttribute('href');
+                    targetSection.classList.add('fade-in');
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
