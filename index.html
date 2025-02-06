@@ -80,6 +80,7 @@
             font-size: 1rem;
             color: #000000;
         }
+        
         .contact-icons img {
             width: 50px;
             margin-bottom: 10px;
@@ -121,7 +122,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -132,7 +133,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="projects.html">Projects</a>
                     </li>
@@ -143,6 +143,16 @@
             </div>
         </div>
     </nav>
+    <script>
+        document.querySelector('.navbar-toggler').addEventListener('click', function() {
+            var navbarCollapse = document.getElementById('navbarNav');
+            if (navbarCollapse.classList.contains('show')) {
+                navbarCollapse.classList.remove('show');
+            } else {
+                navbarCollapse.classList.add('show');
+            }
+        });
+    </script>
     <section id="home" class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Selamat Datang di Portfolio Saya</h1>
