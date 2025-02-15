@@ -146,6 +146,16 @@
         </div>
 
     </nav>
+    <script>
+        document.querySelector('.navbar-toggler').addEventListener('click', function() {
+            var navbarCollapse = document.getElementById('navbarNav');
+            if (navbarCollapse.classList.contains('show')) {
+                navbarCollapse.classList.remove('show');
+            } else {
+                navbarCollapse.classList.add('show');
+            }
+        });
+    </script>
     <section id="contact" class="mt-5">
         <div class="container-fluid">
             <div class="row">
