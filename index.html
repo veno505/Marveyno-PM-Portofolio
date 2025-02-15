@@ -225,26 +225,31 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="Screenshot 2024-09-12 191747.png" class="card-img-top" alt="Project 1">
+                        <img src="Screenshot 2024-09-12 191747.png" class="card-img-top" alt="Pong">
                         <div class="card-body">
                             <h5 class="card-title" style="color: #ffffff; font-family: 'Roboto', sans-serif;">Pong</h5>
+                            <p class="card-text" style="color: #ffffff; font-family: 'Roboto', sans-serif;">Progammer, Desain, Asset</p>
+                            <button class="btn btn-primary" onclick="showPopup('Pong', 'Proyek ini bertujuan untuk meningkatkan keterampilan dalam pemrograman game 2D serta memahami dasar-dasar fisika dalam game, seperti gerakan bola, kolisi, dan perhitungan skor.', 'Screenshot 2024-09-12 191747.png')">View</button>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="Screenshot 2024-09-12 192846.png" class="card-img-top" alt="Project 2">
+                        <img src="Screenshot 2024-09-12 192846.png" class="card-img-top" alt="Space Shooter">
                         <div class="card-body">
                             <h5 class="card-title" style="color: #ffffff; font-family: 'Roboto', sans-serif;">Space Shooter</h5>
+                            <p class="card-text" style="color: #ffffff; font-family: 'Roboto', sans-serif;">Progammer, Desain, Asset</p>
+                            <button class="btn btn-primary" onclick="showPopup('Space Shooter', 'Proyek ini bertujuan untuk meningkatkan keterampilan dalam pengembangan game 2D, termasuk dalam pemrograman fisika dasar, pengendalian gerakan objek, dan desain grafis game.', 'Screenshot 2024-09-12 192846.png')">View</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="Screenshot 2024-11-26 134759.png" class="card-img-top" alt="Project 3">
+                        <img src="Screenshot 2024-11-26 134759.png" class="card-img-top" alt="Catch Game">
                         <div class="card-body">
                             <h5 class="card-title" style="color: #ffffff; font-family: 'Roboto', sans-serif;">Catch Game</h5>
+                            <p class="card-text" style="color: #ffffff; font-family: 'Roboto', sans-serif;">Dibuat dengan berkelompok (Asset)</p>
+                            <button class="btn btn-primary" onclick="showPopup('Catch Game', 'Game ini dibuat dengan berkelompok,bertujuan untuk memahami konsep collision detection, manajemen objek, serta peningkatan kesulitan bertahap dalam gameplay.', 'Screenshot 2024-11-26 134759.png')">View</button>
                         </div>
                     </div>
                 </div>
@@ -303,6 +308,48 @@
                 }, 500);
             });
         });
+    </script>
+     <script>
+        function showPopup(title, description, imageUrl) {
+            const popup = document.createElement('div');
+            popup.style.position = 'fixed';
+            popup.style.top = '50%';
+            popup.style.left = '50%';
+            popup.style.transform = 'translate(-50%, -50%)';
+            popup.style.backgroundColor = '#fff';
+            popup.style.padding = '20px';
+            popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+            popup.style.zIndex = '1000';
+
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.style.width = '100%';
+            img.style.marginBottom = '15px';
+
+            const h5 = document.createElement('h5');
+            h5.textContent = title;
+            h5.style.color = '#343a40';
+            h5.style.fontFamily = "'Roboto', sans-serif";
+
+            const p = document.createElement('p');
+            p.textContent = description;
+            p.style.color = '#6c757d';
+            p.style.fontFamily = "'Roboto', sans-serif";
+
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Close';
+            closeButton.className = 'btn btn-secondary';
+            closeButton.onclick = function() {
+                document.body.removeChild(popup);
+            };
+
+            popup.appendChild(img);
+            popup.appendChild(h5);
+            popup.appendChild(p);
+            popup.appendChild(closeButton);
+
+            document.body.appendChild(popup);
+        }
     </script>
 </body>
 </html>
